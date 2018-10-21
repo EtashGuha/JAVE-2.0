@@ -1,6 +1,7 @@
 package com.example.etashguha.insight;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -37,8 +38,27 @@ public class Reader extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Intent intent = new Intent(getBaseContext(), MainMenu.class);
-                startActivity(intent);
+                switch(item.getItemId()){
+                    case R.id.mybutton:
+                        Intent intent = new Intent(getBaseContext(), MainMenu.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.ttsbutton:
+                        Log.d("Hi","hi");
+                        GoogleCloudTTS tts = new GoogleCloudTTS("I will suck a dick for a T-shirt.");
+
+                        String song = tts.get64String();
+                        String url = "data:audio/wave;base64,"+ song;
+                        MediaPlayer mediaPlayer = new MediaPlayer();
+                        try {
+                            mediaPlayer.setDataSource(url);
+                            mediaPlayer.prepare();
+                            mediaPlayer.start();
+                        } catch (Exception e){
+                            System.out.println(e);
+                        }
+                }
+
                 return true;
             }
         });

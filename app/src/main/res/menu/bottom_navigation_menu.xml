@@ -7,4 +7,10 @@
         android:enabled="true"
         android:icon="@mipmap/ic_launcher"
         android:title="Main" />
+    <item
+        android:id ="@+id/ttsbutton"
+        android:title="Banana"
+        app:showAsAction="always"
+        android:icon = "@mipmap/ic_launcher_foreground"
+        />
 </menu>
