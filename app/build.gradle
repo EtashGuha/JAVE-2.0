@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.etashguha.insight"
-        minSdkVersion 15
+        minSdkVersion 26
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -28,4 +28,5 @@ dependencies {
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     implementation 'com.nbsp:library:1.8'
     implementation 'com.android.support:design:27.1.1'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.7'
 }
