@@ -28,4 +28,12 @@ dependencies {
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     implementation 'com.nbsp:library:1.8'
     implementation 'com.android.support:design:27.1.1'
+    implementation 'com.google.api-client:google-api-client-android:1.22.0'
+    implementation group: 'com.google.cloud', name: 'google-cloud-texttospeech', version: '0.67.0-beta'
+    implementation 'net.sourceforge.argparse4j:argparse4j:0.8.1'
+    implementation 'com.mcxiaoke.volley:library:1.0.18'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'io.grpc:grpc-okhttp:1.15.1'
+    implementation 'io.grpc:grpc-protobuf-lite:1.15.1'
+    implementation 'io.grpc:grpc-stub:1.15.1'
 }
