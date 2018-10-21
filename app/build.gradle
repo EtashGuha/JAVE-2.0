@@ -28,4 +28,5 @@ dependencies {
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     implementation 'com.nbsp:library:1.8'
     implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:design:25.1.1'
 }
