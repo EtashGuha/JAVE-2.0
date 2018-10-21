@@ -18,6 +18,7 @@ import android.media.AudioAttributes;
 import android.media.AudioFormat;
 import android.media.AudioTrack;
 import android.media.MediaPlayer;
+import android.os.StrictMode;
 import android.util.Base64;
 
 import com.google.gson.JsonElement;
@@ -53,7 +54,9 @@ public class GoogleCloudOCR {
      * Demonstrates using the Text-to-Speech API.
      */
     public static String executePost(String encodedImage) {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 
+        StrictMode.setThreadPolicy(policy);
         String body = "{\n" +
                 "  \"requests\":[\n" +
                 "    {\n" +
