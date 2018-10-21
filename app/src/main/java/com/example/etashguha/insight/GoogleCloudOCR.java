@@ -35,7 +35,7 @@ public class GoogleCloudOCR {
     public static String jpegToString(String path, String name) throws Exception{
         try {
             byte[] input_file = Files.readAllBytes(Paths.get(path+name));
-           // byte[] encodedBytes = Base64.getEncoder().encode(input_file);
+            // byte[] encodedBytes = Base64.getEncoder().encode(input_file);
             String encodedString = Base64.encodeToString(input_file, Base64.DEFAULT);
 
             //String encodedString =  new String(encodedBytes);
@@ -47,16 +47,16 @@ public class GoogleCloudOCR {
 
     }
 
-    public static String API_KEY = "AIzaSyDrPHEZ65Lveawn0JDYzXCzt_sRh0tELV";
-    public static String targetURL = "https://vision.googleapis.com/v1/images:annotate" + API_KEY;
+    public static String API_KEY = "AIzaSyBOETr-ORKqzyip2GEsRHDJ0h2kDWrmetg";
+    public static String targetURL = "https://vision.googleapis.com/v1/images:annotate?key=" + API_KEY;
 
     /**
      * Demonstrates using the Text-to-Speech API.
      */
     public static String executePost(String encodedImage) {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+       // StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 
-        StrictMode.setThreadPolicy(policy);
+        //setThreadPolicy(policy);
         String body = "{\n" +
                 "  \"requests\":[\n" +
                 "    {\n" +
@@ -101,6 +101,8 @@ public class GoogleCloudOCR {
             }
             rd.close();
 
+            /*
+
             String jsonLine = response.toString();
             JsonElement jelement = new JsonParser().parse(jsonLine);
             JsonObject jobject = jelement.getAsJsonObject();
@@ -109,7 +111,7 @@ public class GoogleCloudOCR {
             // jobject = jarray.get(0).getAsJsonObject();
             String result = jobject.get("audioContent").getAsString();
             return result;
-
+*/
 
             //System.out.println("");
             //System.out.println("!!" + response.toString() + "==");
@@ -117,7 +119,7 @@ public class GoogleCloudOCR {
             // decode json
             // decode base64
             // output is a wave file
-//            return response.toString();
+            return response.toString();
         } catch (Exception e) {
             e.printStackTrace();
             return "Fail";
@@ -138,7 +140,7 @@ public class GoogleCloudOCR {
     public static void main(String... args) throws Exception {
         // Instantiates a client
 
-        executePost(jpegToString("/Macintosh_HD/Users/VineethHarish_1/Downloads/","randomText.jpg"));
+        executePost(jpegToString("C:\\Users\\alimi\\Downloads\\","OurVirginia3.jpg"));
 
         /*
         try (TextToSpeechClient textToSpeechClient = TextToSpeechClient.create()) {
