@@ -13,4 +13,15 @@
         app:showAsAction="always"
         android:icon = "@mipmap/ic_launcher_foreground"
         />
+    <item
+        android:id ="@+id/backward"
+        android:title="Backward"
+        app:showAsAction="always"
+        android:icon = "@mipmap/ic_launcher_foreground"
+        />
+    <item
+        android:id="@+id/forward"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:title="forward" />
 </menu>

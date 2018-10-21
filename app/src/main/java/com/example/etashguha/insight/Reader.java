@@ -25,6 +25,7 @@ import java.io.File;
 public class Reader extends AppCompatActivity {
 
     PDFView pdfView;
+    int pageNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("Created", "true");
@@ -33,40 +34,50 @@ public class Reader extends AppCompatActivity {
         setContentView(R.layout.activity_reader);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        pageNumber = 0;
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        pdfView = findViewById(R.id.pdfView);
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        final File file = new File(getIntent().getStringExtra("File Name"));
+
+        pdfView.fromUri(Uri.fromFile(file)).pages(pageNumber).load();
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch(item.getItemId()){
-                    case R.id.mybutton:
+                switch (item.getItemId()) {
+                    case R.id.mainMenu:
                         Intent intent = new Intent(getBaseContext(), MainMenu.class);
                         startActivity(intent);
                         break;
                     case R.id.ttsbutton:
-                        Log.d("Hi","hi");
+                        Log.d("Hi", "hi");
                         GoogleCloudTTS tts = new GoogleCloudTTS("I will suck a dick for a T-shirt.");
-
                         String song = tts.get64String();
-                        String url = "data:audio/wave;base64,"+ song;
+                        String url = "data:audio/wave;base64," + song;
                         MediaPlayer mediaPlayer = new MediaPlayer();
                         try {
                             mediaPlayer.setDataSource(url);
                             mediaPlayer.prepare();
                             mediaPlayer.start();
-                        } catch (Exception e){
+                        } catch (Exception e) {
                             System.out.println(e);
                         }
+                        break;
+                    case R.id.forward:
+                        pdfView.fromUri(Uri.fromFile(file)).pages(pageNumber + 1).load();
+                        pageNumber += 1;
+                        break;
+                    case R.id.backward:
+                        pdfView.fromUri(Uri.fromFile(file)).pages(pageNumber - 1).load();
+                        pageNumber -= 1;
+                    default:
+                        break;
                 }
-
                 return true;
             }
         });
-        pdfView = findViewById(R.id.pdfView);
-        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-        StrictMode.setVmPolicy(builder.build());
-        File file = new File(getIntent().getStringExtra("File Name"));
-        pdfView.fromUri(Uri.fromFile(file)).load();
     }
 
     @Override
