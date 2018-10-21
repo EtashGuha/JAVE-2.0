@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     Button newdoc;
     Button resume;
 
-    PDFView pdfView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +49,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getBaseContext(), Reader.class);
+                startActivity(intent);
+            }
+        });
+        newdoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), NewFile.class);
                 startActivity(intent);
             }
         });
