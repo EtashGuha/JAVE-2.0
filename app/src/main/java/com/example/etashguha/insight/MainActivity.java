@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         opendoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(),Library.class);
+                Intent intent = new Intent(getBaseContext(), Library.class);
                 startActivity(intent);
             }
         });
@@ -60,22 +60,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*pdfView = findViewById(R.id.pdfView);
-        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-        StrictMode.setVmPolicy(builder.build());
-        new MaterialFilePicker()
-                .withActivity(this)
-                .withRequestCode(1)
-                .withHiddenFiles(true) // Show hidden files and folders
-                .start();*/
-    }
-    /*@Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && resultCode == RESULT_OK) {
-            String filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
-            File file = new File(filePath);
-            pdfView.fromUri(Uri.fromFile(file)).load();
-        }
-    }*/
-}
+    }}
