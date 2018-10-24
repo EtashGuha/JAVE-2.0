@@ -93,10 +93,9 @@ public class GoogleCloudTTS {
             JsonObject jobject = jelement.getAsJsonObject();
             //jobject = jobject.getAsJsonObject("data");
             //JsonArray jarray = jobject.getAsJsonArray("translations");
-           // jobject = jarray.get(0).getAsJsonObject();
+            //jobject = jarray.get(0).getAsJsonObject();
             String result = jobject.get("audioContent").getAsString();
-            return result;
-
+                return result;
 
             //System.out.println("");
             //System.out.println("!!" + response.toString() + "==");
@@ -144,7 +143,7 @@ public class GoogleCloudTTS {
     public static void main(String... args) throws Exception {
         // Instantiates a client
         GoogleCloudTTS tts = new GoogleCloudTTS("Hello World");
-        System.out.println(tts.get64String());
+
         //playAudioFromString(executePost("Hello World"));
         //System.out.println(executePost("Hello World"));
     }

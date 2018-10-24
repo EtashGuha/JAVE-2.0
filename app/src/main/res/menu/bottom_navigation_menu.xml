@@ -11,17 +11,17 @@
         android:id ="@+id/ttsbutton"
         android:title="Banana"
         app:showAsAction="always"
-        android:icon = "@mipmap/ic_launcher_foreground"
+        android:icon = "@mipmap/ic_launcher"
         />
     <item
         android:id ="@+id/backward"
         android:title="Backward"
         app:showAsAction="always"
-        android:icon = "@mipmap/ic_launcher_foreground"
+        android:icon = "@mipmap/ic_launcher"
         />
     <item
         android:id="@+id/forward"
         android:enabled="true"
         android:icon="@mipmap/ic_launcher"
-        android:title="forward" />
+        android:title="Forward" />
 </menu>

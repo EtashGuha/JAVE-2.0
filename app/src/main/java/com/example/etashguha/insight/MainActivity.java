@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         resume.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(), Reader.class);
+                Intent intent = new Intent(getBaseContext(), Library.class);
                 startActivity(intent);
             }
         });

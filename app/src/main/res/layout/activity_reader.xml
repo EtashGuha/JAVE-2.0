@@ -35,8 +35,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="0dp"
+        app:itemTextColor="#AAAAAA"
         app:itemBackground="@color/colorPrimaryDark"
-        app:itemIconTint="@color/colorAccent"
+        app:itemIconTint="#AAAAAA"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="bottom|center"
         app:menu="@menu/bottom_navigation_menu"/>
